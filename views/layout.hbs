@@ -8,6 +8,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
+    <div class="container mt-4 mb-4">
+      <h1 class="display-4">Sistema de Receitas</h1>
+
+      <ul class="nav nav-pills nav-fill mt-3">
+        <li class="nav-item">
+          <a class="nav-link {{#if activeHome}}active{{/if}}" href="/">
+            <i class="bi bi-card-list"></i> Sistema de Receitas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{#if activeSobre}}active{{/if}}" href="/sobre">
+            <i class="bi bi-info-circle"></i> Sobre
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{#if activeNova}}active{{/if}}" href="/receita/nova">
+            <i class="bi bi-plus-circle"></i> Nova Receita
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{#if activePesquisa}}active{{/if}}" href="/pesquisa">
+            <i class="bi bi-search"></i> Pesquisar Receita
+          </a>
+        </li>
+      </ul>
+    </div>
+
     <div class="container">
       {{{body}}}
     </div>

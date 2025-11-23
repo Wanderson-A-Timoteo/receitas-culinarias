@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var receitasController = require('../controller/receitasController');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+/* GET página principal. */
+router.get('/', receitasController.listar);
 
 module.exports = router;
