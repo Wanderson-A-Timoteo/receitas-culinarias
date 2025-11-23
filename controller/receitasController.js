@@ -11,6 +11,14 @@ module.exports = {
         });
     },
 
+    // GET: Página Sobre
+    sobre: (req, res) => {
+        res.render('sobre', { 
+            title: 'Sobre o Projeto',
+            activeSobre: true // Destacar o menu
+        });
+    },
+
     // GET: Mostra o formulário de criação
     nova: (req, res) => {
         res.render('novaReceita', { 

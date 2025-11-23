@@ -5,6 +5,9 @@ var receitasController = require('../controller/receitasController');
 /* GET página principal. */
 router.get('/', receitasController.listar);
 
+/* GET página sobre */
+router.get('/sobre', receitasController.sobre);
+
 // GET: Formulário de nova receita
 router.get('/receita/nova', receitasController.nova);
 
