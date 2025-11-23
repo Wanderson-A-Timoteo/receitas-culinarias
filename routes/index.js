@@ -20,4 +20,10 @@ router.get('/receita/:id', receitasController.detalhes);
 // GET: Excluir Receita
 router.get('/receita/excluir/:id', receitasController.excluir);
 
+// GET: Formulário de Edição
+router.get('/receita/editar/:id', receitasController.editar);
+
+// POST: Salvar Edição
+router.post('/receita/editar/:id', receitasController.atualizar);
+
 module.exports = router;

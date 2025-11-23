@@ -51,5 +51,30 @@ module.exports = {
         const id = req.params.id;
         receitasModel.excluir(id);
         res.redirect('/');
+    },
+
+    // GET: Mostrar formulário de edição
+    editar: (req, res) => {
+        const id = req.params.id;
+        const receita = receitasModel.consultar(id);
+        
+        if (receita) {
+            res.render('editarReceita', { 
+                title: 'Editar Receita',
+                receita: receita
+            });
+        } else {
+            res.redirect('/');
+        }
+    },
+
+    // POST: Salvar as alterações
+    atualizar: (req, res) => {
+        const id = req.params.id;
+        const { titulo, ingredientes, preparo, tempo } = req.body;
+        
+        receitasModel.atualizar(id, titulo, ingredientes, preparo, tempo);
+        
+        res.redirect('/');
     }
 };
