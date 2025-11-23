@@ -1,13 +1,32 @@
 const receitasModel = require('../model/receitasMemoria');
 
 module.exports = {
+    // Lista todas as receitas na Home
     listar: (req, res) => {
         const listaReceitas = receitasModel.listar();
-
         res.render('index', { 
             title: 'Sistema de Receitas', 
             receitas: listaReceitas,
-            activeHome: true // Marcar o menu como ativo
+            activeHome: true 
         });
+    },
+
+    // GET: Mostra o formulário de criação
+    nova: (req, res) => {
+        res.render('novaReceita', { 
+            title: 'Nova Receita',
+            activeNova: true // Destacar o menu
+        });
+    },
+
+    // POST: Recebe os dados e salva
+    salvar: (req, res) => {
+        const { titulo, ingredientes, preparo, tempo } = req.body;
+        
+        // Chama o model para criar a receita
+        receitasModel.criar(titulo, ingredientes, preparo, tempo);
+        
+        // Redireciona para a página principal
+        res.redirect('/');
     }
 };

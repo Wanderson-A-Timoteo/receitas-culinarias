@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+          <h4 class="mb-0"><i class="bi bi-plus-circle"></i> Nova Receita</h4>
+      </div>
+      <div class="card-body">
+        <form action="/receita/nova" method="POST">
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Título da Receita</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="ingredientes" class="form-label">Ingredientes</label>
+            <textarea class="form-control" id="ingredientes" name="ingredientes" rows="4" placeholder="Digite cada ingrediente em uma nova linha" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="preparo" class="form-label">Modo de Preparo</label>
+            <textarea class="form-control" id="preparo" name="preparo" rows="4" placeholder="Descreva passo a passo o modo de preparo" required></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label for="tempo" class="form-label">Tempo de Preparo (minutos)</label>
+            <input type="number" class="form-control" id="tempo" name="tempo" min="1" required>
+          </div>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/" class="btn btn-secondary me-md-2">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-lg"></i> Salvar Receita
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
