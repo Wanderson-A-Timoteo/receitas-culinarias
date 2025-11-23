@@ -19,6 +19,22 @@ module.exports = {
         });
     },
 
+    // GET: Detalhes da receita
+    detalhes: (req, res) => {
+        const id = req.params.id;
+        const receita = receitasModel.consultar(id);
+        
+        if (receita) {
+            res.render('consultaReceita', { 
+                title: 'Detalhes da Receita',
+                receita: receita
+            });
+        } else {
+            // Se não achar (ex: ID inválido), volta pra home
+            res.redirect('/');
+        }
+    },
+
     // POST: Recebe os dados e salva
     salvar: (req, res) => {
         const { titulo, ingredientes, preparo, tempo } = req.body;

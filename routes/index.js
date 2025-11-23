@@ -11,4 +11,7 @@ router.get('/receita/nova', receitasController.nova);
 // POST: Salvar nova receita
 router.post('/receita/nova', receitasController.salvar);
 
+// GET: Consultar Receita
+router.get('/receita/:id', receitasController.detalhes);
+
 module.exports = router;
