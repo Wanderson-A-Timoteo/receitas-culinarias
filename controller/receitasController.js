@@ -84,5 +84,23 @@ module.exports = {
         receitasModel.atualizar(id, titulo, ingredientes, preparo, tempo);
         
         res.redirect('/');
+    },
+
+    // GET: Pesquisar Receita
+    pesquisar: (req, res) => {
+        const termo = req.query.busca; // Pega o parâmetro ?busca=... da URL
+        let resultados = [];
+
+        if (termo) {
+            // Se tem termo, busca no model
+            resultados = receitasModel.pesquisar(termo);
+        }
+
+        res.render('pesquisa', { 
+            title: 'Pesquisar Receita',
+            activePesquisa: true, // Destaca menu
+            termo: termo, // Envia o termo de volta para o input
+            resultados: resultados
+        });
     }
 };

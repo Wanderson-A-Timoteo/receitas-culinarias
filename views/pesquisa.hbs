@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <h2 class="mb-4"><i class="bi bi-search"></i> Pesquisar Receitas</h2>
+
+    <form action="/pesquisa" method="GET" class="mb-5">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" name="busca" placeholder="Digite o título da receita..." value="{{termo}}" required>
+        <button class="btn btn-primary" type="submit">Pesquisar</button>
+      </div>
+    </form>
+
+    {{#if resultados.length}}
+      <h4 class="mb-3">Resultados para: "<strong>{{termo}}</strong>"</h4>
+      <div class="row">
+        {{#each resultados}}
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{this.titulo}}</h5>
+              <p class="card-text text-muted">Tempo: {{this.tempo}} min</p>
+              <a href="/receita/{{this.id}}" class="btn btn-outline-primary stretched-link">Ver Receita</a>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    {{else}}
+      {{#if termo}}
+          <div class="alert alert-warning text-center">
+              Nenhuma receita encontrada com o título "<strong>{{termo}}</strong>".
+          </div>
+      {{else}}
+          <div class="text-center text-muted mt-5">
+              <i class="bi bi-search display-1"></i>
+              <p class="mt-3">Digite algo acima para buscar em suas receitas.</p>
+          </div>
+      {{/if}}
+    {{/if}}
+    
+    <div class="mt-4">
+      <a href="/" class="btn btn-secondary">
+          <i class="bi bi-arrow-left"></i> Voltar para Home
+      </a>
+    </div>
+  </div>
+</div>

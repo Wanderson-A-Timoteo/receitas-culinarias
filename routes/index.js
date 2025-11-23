@@ -29,4 +29,7 @@ router.get('/receita/editar/:id', receitasController.editar);
 // POST: Salvar Edição
 router.post('/receita/editar/:id', receitasController.atualizar);
 
+// GET: Página de Pesquisa
+router.get('/pesquisa', receitasController.pesquisar);
+
 module.exports = router;
