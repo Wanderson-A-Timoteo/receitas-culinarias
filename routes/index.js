@@ -14,4 +14,10 @@ router.post('/receita/nova', receitasController.salvar);
 // GET: Consultar Receita
 router.get('/receita/:id', receitasController.detalhes);
 
+// GET: Consultar Receita
+router.get('/receita/:id', receitasController.detalhes);
+
+// GET: Excluir Receita
+router.get('/receita/excluir/:id', receitasController.excluir);
+
 module.exports = router;

@@ -44,5 +44,12 @@ module.exports = {
         
         // Redireciona para a página principal
         res.redirect('/');
+    },
+
+    // GET: Excluir receita
+    excluir: (req, res) => {
+        const id = req.params.id;
+        receitasModel.excluir(id);
+        res.redirect('/');
     }
 };
